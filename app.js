@@ -12,44 +12,41 @@ Clase: button-draw
 Este boton sorteara en de forma alazar un nombre de los cuales fueron digitados.
 */
 
-let NombreAmigos = [];
+let amigos = []; //Lista de nombres
 
 // Agregar nombres
 
-function agregarAmigo(){
+function agregarNombre() {
+    let inputAmigo = document.getElementById("amigo"); //Obtiene el input de forma correcta
+    let nombre = inputAmigo.value.trim(); // Obtiene el valor ademas de eliminar los espacios en blanco por el .trim
 
-    let inputAmigo = document.getElementById('amigo'); //Obtiene el input de forma correcta
-    let nombres = inputAmigo.value.trim(); // Obtiene el valor ademas de eliminar los espacios en blanco por el .trim
-
-    if(nombres != ""){
-        NombreAmigos.push(nombres); //se añade a la arraylist
-
-        inputAmigo.value = ""; //Limpia la entrada
-
-        mostrarListaAmigos(); //Actualiza la lista de los amigos añadidos
-
-    // Valida la entrada de datos si es vacio o no
-    } else {
-
-        alert("Por favor, ingresa un nombre válido."); // Mostrar alerta
-        
+    if (nombre === "") {
+        alert("Por favor, ingresa un nombre.");
+        return;
     }
 
-    return;
+    if (amigos.includes(nombre)) {
+        alert("Ya existe ese nombre en la lista.");
+        return;
+    }
+
+    amigos.push(nombre);    //se añade a la arraylist
+    actualizarLista();      //Actualiza la lista de los amigos añadidos
+    inputAmigo.value = "";  // Limpiar el input-entrada
+
 }
 
 // Visualizar la lista
 
-function mostrarListaAmigos(){
-    let lista = document.getElementById('listaAmigos');
-    
-    lista.innerHTML = ""; // Limpiar lista antes de actualizar
+function actualizarLista(){
+    let listaNombres = document.getElementById('listaNombres'); //obtiene al ul
+    listaNombres.innerHTML = ""; // Limpiar lista antes de actualizar
 
     //li sera el elemento de lista respetando la arraylist
-    NombreAmigos.forEach(amigo => {
+    amigos.forEach((nombre) => {
         let li = document.createElement("li");
-        li.textContent = amigo;
-        lista.appendChild(li);
+        li.textContent = nombre;
+        listaNombres.appendChild(li);
     });
 }
 
@@ -59,19 +56,32 @@ function mostrarListaAmigos(){
 function sortearAmigo(){
 
     // si la lista esta vacia muestra la alerta
-    if (NombreAmigos.length === 0) {
+        if (amigos.length === 0) {
         alert("No ingresaste ningun nombre en la lista. Para iniciar debes ingresar al menos un nombre")
         return;
     }
 
-    let sorteoAleatorio = Math.floor(Math.random()*NombreAmigos.length);
-    let ganador = NombreAmigos.splice(sorteoAleatorio, 1)[0]; // Elimina y obtiene el nombre sorteado
+    // Elegir un índice aleatorio
+    let indiceGanador = Math.floor(Math.random() * amigos.length);
+    let ganador = amigos[indiceGanador];
 
+    // Mostrar el resultado
     document.getElementById("resultado").textContent = `${ganador}`;
+
+    // Eliminar el ganador de la lista
+    amigos.splice(indiceGanador, 1);
+
+    // Actualizar la lista visual
+    actualizarLista();
 }
 
 //EXTRA - quise añadir el boton de reiniciar el sorteo.
 
 function reiniciarSorteo() {
+    amigos = []; // Vaciar la lista de nombres
+    document.getElementById("listaNombres").innerHTML = "";  // Vaciar lista en pantalla
+    document.getElementById("resultado").textContent = "";  // Limpiar resultado
+    document.getElementById("listaNombres").value = "";       // Limpiar input
 
+    alert("El sorteo ha sido reiniciado.");
 }
