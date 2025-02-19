@@ -19,7 +19,13 @@ let amigos = []; //Lista de nombres
 function agregarNombre() {
     let inputAmigo = document.getElementById("amigo"); //Obtiene el input de forma correcta
     let nombre = inputAmigo.value.trim(); // Obtiene el valor ademas de eliminar los espacios en blanco por el .trim
-
+    let soloTexto = /^[a-zA-Z\sñÑ@]+$/;
+    
+    if (!soloTexto.test(nombre)) {
+        alert("Por favor, ingresa solo texto sin números.");
+        return;
+    }
+    
     if (nombre === "") {
         alert("Por favor, ingresa un nombre.");
         return;
