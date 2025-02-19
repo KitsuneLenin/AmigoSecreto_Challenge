@@ -56,6 +56,22 @@ function mostrarListaAmigos(){
 
 // Sorteo aleatorio
 
-function sorteoAleatorioDeNombres(){
+function sortearAmigo(){
+
+    // si la lista esta vacia muestra la alerta
+    if (NombreAmigos.length === 0) {
+        alert("No ingresaste ningun nombre en la lista. Para iniciar debes ingresar al menos un nombre")
+        return;
+    }
+
+    let sorteoAleatorio = Math.floor(Math.random()*NombreAmigos.length);
+    let ganador = NombreAmigos.splice(sorteoAleatorio, 1)[0]; // Elimina y obtiene el nombre sorteado
+
+    document.getElementById("resultado").textContent = `${ganador}`;
+}
+
+//EXTRA - quise añadir el boton de reiniciar el sorteo.
+
+function reiniciarSorteo() {
 
 }
