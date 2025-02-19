@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #eb8735;
+    --color-primary: white;
     --color-secondary: #FFF9EB;
     --color-tertiary: #C4C4C4;
     --color-button: #eb8735;
@@ -17,7 +17,7 @@
 
 body {
     height: 100vh;
-    background-color: var(--color-primary);
+    background: linear-gradient(to right, #ffa561, #b4453d);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +44,7 @@ body {
 .input-section {
     align-self: center;
     flex: 60%;
-    background: linear-gradient(to right,rgb(235, 233, 168), rgb(255, 152, 139));
+    background: rgba(255, 255, 255, 0.3);;
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
     display: flex;
