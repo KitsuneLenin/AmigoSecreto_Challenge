@@ -22,20 +22,27 @@ function agregarAmigo(){
     let nombres = inputAmigo.value.trim(); // Obtiene el valor ademas de eliminar los espacios en blanco por el .trim
 
     if(nombres != ""){
-        NombreAmigos.push(nombres);
+        NombreAmigos.push(nombres); //se añade a la arraylist
 
-        //Limpia la entrada
-        inputAmigo.value = "";
+        inputAmigo.value = ""; //Limpia la entrada
 
-        //Actualiza la lista de los amigos añadidos
-        mostrarListaAmigos();
+        mostrarListaAmigos(); //Actualiza la lista de los amigos añadidos
+
+    // Valida la entrada de datos si es vacio o no
+    } else {
+
+        alert("Por favor, ingresa un nombre válido."); // Mostrar alerta
+        
     }
 
     return;
 }
 
+// Visualizar la lista
+
 function mostrarListaAmigos(){
     let lista = document.getElementById('listaAmigos');
+    
     lista.innerHTML = ""; // Limpiar lista antes de actualizar
 
     //li sera el elemento de lista respetando la arraylist
@@ -46,25 +53,6 @@ function mostrarListaAmigos(){
     });
 }
 
-
-// Validar entrada
-
-function validarIngresoNombres(){
-
-}
-
-
-function verificarIntento(){ //tambien llamamos IntentoDeUsuario del boton INTENTAR
-    
-}
-
-
-
-// Visualizar la lista
-
-function listaDeNombres(){
-
-}
 
 // Sorteo aleatorio
 
