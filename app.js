@@ -18,16 +18,33 @@ let NombreAmigos = [];
 
 function agregarAmigo(){
 
-    let nombres = document.getElementById('amigo').value;
+    let inputAmigo = document.getElementById('amigo'); //Obtiene el input de forma correcta
+    let nombres = inputAmigo.value.trim(); // Obtiene el valor ademas de eliminar los espacios en blanco por el .trim
 
     if(nombres != ""){
         NombreAmigos.push(nombres);
+
+        //Limpia la entrada
+        inputAmigo.value = "";
+
+        //Actualiza la lista de los amigos añadidos
+        mostrarListaAmigos();
     }
 
     return;
 }
 
+function mostrarListaAmigos(){
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = ""; // Limpiar lista antes de actualizar
 
+    //li sera el elemento de lista respetando la arraylist
+    NombreAmigos.forEach(amigo => {
+        let li = document.createElement("li");
+        li.textContent = amigo;
+        lista.appendChild(li);
+    });
+}
 
 
 // Validar entrada
