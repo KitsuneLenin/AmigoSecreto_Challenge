@@ -14,3 +14,7 @@ Digitas los nombres de tus amigos, este se guardara en una lista y cuando le dam
 + Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
   
 + Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
+
+``EXTRAS``
+
++ Reiniciar Sorteo: El programa reiniciara los datos para volver a iniciar de 0
