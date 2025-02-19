@@ -16,25 +16,41 @@ let NombreAmigos = [];
 
 // Agregar nombres
 
-function añadirNombres{
+function agregarAmigo(){
 
+    let nombres = document.getElementById('amigo').value;
+
+    if(nombres != ""){
+        NombreAmigos.push(nombres);
+    }
+
+    return;
 }
+
+
+
 
 // Validar entrada
 
-function validarIngresoNombres{
+function validarIngresoNombres(){
 
 }
+
+
+function verificarIntento(){ //tambien llamamos IntentoDeUsuario del boton INTENTAR
+    
+}
+
 
 
 // Visualizar la lista
 
-function listaDeNombres{
+function listaDeNombres(){
 
 }
 
 // Sorteo aleatorio
 
-function sorteoAleatorioDeNombres{
+function sorteoAleatorioDeNombres(){
 
 }
