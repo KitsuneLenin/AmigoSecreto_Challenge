@@ -91,8 +91,12 @@ body {
 }
 
 .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Agrega espacio entre los botones */
     width: 300px;
-    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Estilos de entrada de texto */
@@ -122,13 +126,13 @@ button {
 .button-add {
     background-color: #5A3211;
     color: white;
-
     border-radius: 0 25px 25px 0;
 }
 
 .button-add:hover {
     background-color: #a0591f;
 }
+
 
 /* Listas */
 ul {
@@ -164,4 +168,13 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.button-reset {
+    background-color: #c73a30;
+    color: var(--color-white);
+}
+
+.button-reset:hover {
+    background-color: #fc3527;
 }
